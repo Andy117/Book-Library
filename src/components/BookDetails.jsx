@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { BooksContext } from "../context/BooksContext";
+import BookInfoContext from "../context/BookInfoContext";
 
 function BookDetails() {
   const { bookId } = useParams();
-  const books = useContext(BooksContext);
+  const books = useContext(BookInfoContext);
 
   const book = books.find((b) => b.id === parseInt(bookId));
 

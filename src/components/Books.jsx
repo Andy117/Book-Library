@@ -1,11 +1,11 @@
-import { useContext, useEffect } from "react";
-import { BooksContext } from "../context/BooksContext";
+import { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import BookInfoContext from "../context/BookInfoContext";
 
 function Books() {
   const query = new URLSearchParams(useLocation().search);
   const search = query.get("search") || "";
-  const books = useContext(BooksContext);
+  const books = useContext(BookInfoContext);
 
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(search.toLowerCase())

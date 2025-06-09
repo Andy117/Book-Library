@@ -10,6 +10,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { PrivateRoute } from "./routes/PrivateRoute";
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
             element={<BookDetails></BookDetails>}
           ></Route>
           <Route path='*' element={<NotFound></NotFound>}></Route>
-          <Route path='/secret' element={<SecretBooks></SecretBooks>}></Route>
+          <Route
+            path='/secret'
+            element={<PrivateRoute Component={<SecretBooks />}></PrivateRoute>}
+          ></Route>
         </Routes>
       </Router>
     </BooksProvider>
