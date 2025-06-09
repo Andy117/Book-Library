@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-export const BookContext = createContext();
+export const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
@@ -12,5 +12,7 @@ export const BooksProvider = ({ children }) => {
       .catch((err) => console.error(err));
   }, []);
 
-  return <BookContext.Provider value={books}>{children}</BookContext.Provider>;
+  return (
+    <BooksContext.Provider value={books}>{children}</BooksContext.Provider>
+  );
 };
